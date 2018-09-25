@@ -105,6 +105,9 @@ class UsersTableSeeder extends Seeder
         $parts = $file_size / $buffer;
     
         //store all the file names
+        if (!file_exists(storage_path("seed/"))) {
+            mkdir(storage_path("seed/"), 0777, true);
+        }
         $file_parts = array();
         $file_handle = fopen($this->filename,'r');
     

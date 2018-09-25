@@ -10,7 +10,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\DB;
-use Union\UnionPaginator;
 
 class Controller extends BaseController
 {
@@ -23,7 +22,6 @@ class Controller extends BaseController
         $relevancy_ids = array_merge (file(app_path() . '/lista_relevancia_1.txt', FILE_IGNORE_NEW_LINES), file(app_path() . '/lista_relevancia_2.txt', FILE_IGNORE_NEW_LINES));
         $relevancy = implode("','", $relevancy_ids);
 
-        //dd($request->search);
         if ($request->search) {
             $users_with_relevancy = UserPicPay::whereIn('id', $relevancy_ids)
                 ->where('name', 'like', '%' . $request->search . '%')
@@ -35,7 +33,6 @@ class Controller extends BaseController
             $count_relevancy = count($users_with_relevancy);
 
             if($count_relevancy == 0){
-                //dd($request->search);
                 $users = UserPicPay::whereNotIn('id', $relevancy_ids)
                     ->where('name', 'like', '%' . $request->search . '%')
                     ->orWhere('username', 'like', '%' . $request->search . '%')
