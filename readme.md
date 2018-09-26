@@ -1,3 +1,19 @@
+<p align="center"><img src="https://i1.wp.com/www.datamation.com.ar/wp-content/uploads/2014/08/images_Docker.jpg?resize=247%2C204"></p>
+
+## Project Config
+
+Using the Compose command line tool you can create and start one or more containers for each dependency with a single command (`docker-compose up -d`).
+
+After install Laravel dependencies:
+
+`docker-compose run app composer install`
+
+`docker-compose run app php artisan passport:install`
+
+`docker-compose run app php artisan migrate`
+
+`docker-compose run app php artisan db:seed`
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
@@ -6,6 +22,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
+
 
 ## About Laravel
 
